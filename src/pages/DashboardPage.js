@@ -96,13 +96,21 @@ export default function DashboardPage() {
           <span className="dashboard-chip">{surveys.length} Total</span>
         </div>
 
-        <SurveyGrid
-          surveys={surveys}
-          onCreate={handleCreateSurvey}
-          onEdit={handleEditSurvey}
-          onDelete={handleDeleteSurvey}
-          onOpenResponses={handleOpenSurveyResponses}
-        />
+        {/* Error */}
+        {error && <p className="dashboard-error">{error}</p>}
+
+        {/* Loading */}
+        {loading ? (
+          <p className="dashboard-loading">Loading surveys...</p>
+        ) : (
+          <SurveyGrid
+            surveys={surveys}
+            onCreate={handleCreateSurvey}
+            onEdit={handleEditSurvey}
+            onDelete={handleDeleteSurvey}
+            onOpenResponses={handleOpenSurveyResponses}
+          />
+        )}
       </main>
     </div>
   );
