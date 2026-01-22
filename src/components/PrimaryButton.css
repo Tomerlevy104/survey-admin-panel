@@ -1,0 +1,28 @@
+.primary-button {
+  height: 48px;
+  min-width: 320px;
+  max-width: 420px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-soft);
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.primary-button:hover {
+  filter: brightness(0.95);
+}
+
+.primary-button:active {
+  transform: translateY(1px);
+}
