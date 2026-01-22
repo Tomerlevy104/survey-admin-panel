@@ -1,0 +1,52 @@
+.dashboard-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #dae7e7;
+}
+
+.dashboard-header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 64px;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dashboard-header__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #008f8f;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+}
+
+.dashboard-header__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #101818;
+}
+
+.dashboard-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

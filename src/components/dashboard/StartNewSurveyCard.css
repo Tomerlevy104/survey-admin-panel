@@ -1,0 +1,31 @@
+.start-new-survey-card {
+  min-height: 190px;
+  border-radius: 14px;
+  border: 2px dashed #b7d6d6;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.start-new-survey-card__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: rgba(0, 143, 143, 0.08);
+  color: #008f8f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.start-new-survey-card__text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #5e8d8d;
+}

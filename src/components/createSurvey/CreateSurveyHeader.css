@@ -1,0 +1,51 @@
+.create-survey-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  border-bottom: 1px solid #dae7e7;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.create-survey-header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.create-survey-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.create-survey-header__logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #008f8f;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-survey-header__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.create-survey-header__save {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
