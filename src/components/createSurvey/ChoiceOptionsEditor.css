@@ -1,0 +1,34 @@
+.choice-options-editor {
+  border-left: 2px solid #dae7e7;
+  padding-left: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice-options-editor__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.choice-options-editor__row button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #b8caca;
+}
+
+.choice-options-editor__add {
+  border: none;
+  background: transparent;
+  color: #008f8f;
+  font-weight: 700;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+}

@@ -1,0 +1,12 @@
+.question-type-select__select {
+  width: 180px;
+  height: 40px;
+
+  border: 1px solid #dae7e7;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 0 12px;
+
+  font-weight: 700;
+  color: #101818;
+}
