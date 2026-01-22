@@ -35,3 +35,14 @@
   font-size: 12px;
   font-weight: 800;
 }
+
+.dashboard-loading {
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.dashboard-error {
+  margin-top: 12px;
+  font-weight: 700;
+  color: #b00020;
+}
