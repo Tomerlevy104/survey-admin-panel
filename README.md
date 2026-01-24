@@ -140,15 +140,15 @@ Each question includes:
 
 ### Dashboard (All Surveys)
 
-<img src="screenshots/panel_dashboard.png" width="300" />
+<img src="screenshots/panel_dashboard.png" width="800" />
 
 ### Create Survey
 
-<img src="screenshots/panel_create_new_survey.png" width="300" />
+<img src="screenshots/panel_create_new_survey.png" width="800" />
 
 ### Survey Responses
 
-<img src="screenshots/panel_response.png" width="300" />
+<img src="screenshots/panel_response.png" width="800" />
 
 ---
 
