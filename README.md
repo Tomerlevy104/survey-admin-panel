@@ -138,9 +138,6 @@ Each question includes:
 
 ## 🖼️ Screenshots
 
-Add your screenshots here:
-
-```md
 ### Dashboard (All Surveys)
 
 <img src="screenshots/panel_dashboard.png" width="300" />
@@ -152,7 +149,6 @@ Add your screenshots here:
 ### Survey Responses
 
 <img src="screenshots/panel_response.png" width="300" />
-```
 
 ---
 
