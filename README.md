@@ -1,70 +1,192 @@
-# Getting Started with Create React App
+# 🛠️ Survey Admin Panel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based admin panel for managing surveys used by the **Smart Survey SDK**.  
+After registering, each developer receives a personal **API Key** that is used to initialize the SDK inside their Android app.
 
-## Available Scripts
+🌐 Live Admin Panel: **https://survey-admin-panel.onrender.com**  
+🔗 Backend Server (API): **https://survey-sdk-server.onrender.com**
 
-In the project directory, you can run:
+With this panel you can:
 
-### `npm start`
+- Create and manage surveys
+- View end-user responses submitted from mobile apps
+- Copy your personal API Key to use in the SDK initialization
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+- ✅ **Authentication (JWT-based)**  
+  Developers must login to access protected pages and send requests to the backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ✅ **Developer Registration + API Key**  
+  After signing up, the panel displays your personal **API Key**.
 
-### `npm run build`
+- ✅ **Survey Management (CRUD)**
+  - Create new surveys
+  - Edit existing surveys
+  - Delete surveys
+  - View all your surveys in a dashboard
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ✅ **Responses Viewer**
+  - View all responses for a specific survey
+  - Search/filter responses (client-side)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 Installation
 
-### `npm run eject`
+### Requirements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Node.js **v22.17.0**
+- npm **11.4.2**
+- React **19.2.3**
+- react-dom **19.2.3**
+- react-router-dom **7.12.0**
+- react-scripts (CRA) **5.0.1**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Node.js (LTS recommended)
+- npm (comes with Node.js)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Install dependencies
 
-## Learn More
+```bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Configure environment variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a file named **`.env`** in the project root:
 
-### Code Splitting
+```env
+REACT_APP_API_BASE_URL=https://survey-sdk-server.onrender.com
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> `REACT_APP_API_BASE_URL` is the base URL of the backend server (the Survey SDK server).
 
-### Analyzing the Bundle Size
+### Run locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm start
+```
 
-### Making a Progressive Web App
+The app will be available at:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `http://localhost:3000`
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🚀 Usage
 
-### Deployment
+### Register and get your API Key
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Open the Admin Panel: **https://survey-admin-panel.onrender.com**
+2. Go to **Register**
+3. Create an account (email + password)
+4. After successful registration, the panel shows your **API Key**
 
-### `npm run build` fails to minify
+You will use this API Key inside the Android SDK:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```kotlin
+SmartSurvey.init(
+    context = applicationContext,
+    baseUrl = "https://survey-sdk-server.onrender.com/",
+    apiKey = "YOUR_API_KEY_FROM_ADMIN_PANEL"
+)
+```
+
+---
+
+### Login
+
+- Login returns a **JWT token**
+- The panel stores the JWT in `localStorage`
+- All admin requests include:
+  - `Authorization: Bearer <JWT>`
+
+---
+
+### Main pages (routes)
+
+| Page             | Route                          | Description                      |
+| ---------------- | ------------------------------ | -------------------------------- |
+| Login            | `/`                            | Developer login                  |
+| Register         | `/register`                    | Create account + receive API key |
+| Dashboard        | `/dashboard`                   | View all surveys                 |
+| Create Survey    | `/surveys/new`                 | Create a new survey              |
+| Edit Survey      | `/surveys/:surveyId/edit`      | Update an existing survey        |
+| Survey Responses | `/surveys/:surveyId/responses` | View responses for a survey      |
+
+---
+
+### Survey structure
+
+A survey contains:
+
+- `title`
+- `questions[]`
+
+Each question includes:
+
+- `type` (e.g. `TEXT`, `SINGLE_CHOICE`)
+- `prompt`
+- `options[]` (only for `SINGLE_CHOICE`)
+
+---
+
+## 🖼️ Screenshots
+
+Add your screenshots here:
+
+```md
+### Dashboard (All Surveys)
+
+<img src="screenshots/panel_dashboard.png" width="300" />
+
+### Create Survey
+
+<img src="screenshots/panel_create_new_survey.png" width="300" />
+
+### Survey Responses
+
+<img src="screenshots/panel_response.png" width="300" />
+```
+
+---
+
+## 🧩 API Endpoints Used (Frontend → Backend)
+
+Authentication:
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+
+Surveys:
+
+- `GET /api/admin/surveys`
+- `POST /api/admin/surveys`
+- `GET /api/admin/surveys/:surveyId`
+- `PUT /api/admin/surveys/:surveyId`
+- `DELETE /api/admin/surveys/:surveyId`
+
+Responses:
+
+- `GET /api/admin/surveys/:surveyId/responses`
+
+---
+
+## 🛠️ Technology
+
+- **React** (Create React App)
+- **React Router**
+- **Fetch API** (HTTP requests)
+- **JWT Authentication**
+- **CSS** (custom styling)
+
+---
+
+## 👨‍💻 Author
+
+Developed by **Tomer Levy**
