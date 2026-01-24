@@ -83,9 +83,8 @@ The app will be available at:
 ### Register and get your API Key
 
 1. Open the Admin Panel: **https://survey-admin-panel.onrender.com**
-2. Go to **Register**
-3. Create an account (email + password)
-4. After successful registration, the panel shows your **API Key**
+2. Go to **Create an account**
+3. After successful registration, the panel shows your **API Key**
 
 You will use this API Key inside the Android SDK:
 
